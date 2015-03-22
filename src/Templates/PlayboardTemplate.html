@@ -1,0 +1,23 @@
+{% from ConnectFourAI import ConnectFourPlayboard %}
+
+<div id="Playboard" class="Playboard" style="width: {{Columns * 100}}px; height: {{Rows * 100}}px">      
+  {% for i in range(0, Columns) %}
+  <div id="Column{{ i }}" class="Column" column="{{ i }}" onClick="ChooiceColumn(this)" onMouseOver="ColumnMouseOver(this)" style="position:absolute; left: {{ i * 100 / Columns }}%; buttom: 0px; width: {{ 100 / Columns }}%">
+  {% for j in range(0, Rows) %}
+  {% if GetField(j, i) == ConnectFourPlayboard.RED %}
+    <img src="{{ static_url("Images/Red.png") }}" />
+  {% elif GetField(j, i) == ConnectFourPlayboard.WHITE %}
+    <img src="{{ static_url("Images/White.png") }}" />
+  {% else %}
+    <img src="{{ static_url("Images/None.png") }}" />
+  {% end %}
+  {% end %}
+  </div>
+  {% end %}
+</div>
+
+    
+
+
+
+

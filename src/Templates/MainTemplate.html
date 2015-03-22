@@ -1,0 +1,16 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+     <head>
+          <title>ConnectFour</title>
+          <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+          <script type="text/javascript" src="{{ static_url("JavaScript/ConnectFour.js") }}"></script>
+          <link rel="stylesheet" type="text/css" href="{{ static_url("Style/Playboard.css") }}" media="all" />
+          <link rel="stylesheet" type="text/css" href="{{ static_url("Style/PlayboardHandheld.css") }}" media="handheld" />
+     </head>
+
+     <body class=".white" session="{{ sessionID }}">
+          <div id="statistic" class="statistic"></div>
+          <div id="playboard" class="playboard"></div>
+     </body>
+
+</html>

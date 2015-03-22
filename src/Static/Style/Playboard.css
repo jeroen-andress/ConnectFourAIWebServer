@@ -1,0 +1,41 @@
+.playboard
+{
+    position: absolute;
+    margin: auto;
+    overflow: none;
+    border: 1px solid black;
+    background-color: #eeeeee;
+    padding: 0px;
+    margin: 0px;
+}
+
+.field
+{
+/*     border: 1px solid black; */
+    padding: 0px;
+    margin: 0px;
+    width: 50px; 
+    height: 50px; 
+}
+
+.whiteField
+{
+    width:100px; 
+    height:100px; 
+    background: url('static/Images/White.png');
+}
+
+.redField
+{
+    width:100px; 
+    height:100px;     
+    background: url('static/Images/Red.png');
+}
+
+.noneField
+{
+    width:100px; 
+    height:100px;     
+    background: url('static/Images/None.png');
+    border: 1px solid black;
+}
