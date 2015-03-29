@@ -1,9 +1,14 @@
 #!/usr/bin/env python
+### BEGIN INIT INFO
+# Provides:         Starts Webserver for ConnectFour game 
+# Required-Start:    
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+# Author: Jeroen Andreß https://github.com/jeroen-andress
 
 import os, time, sys
-
-sys.path.append("/home/jeroen/Software/PythonDaemon")
-sys.path.append("/home/jeroen/Software/ConnectFour/")
 
 from Daemon import * 
 from Webserver import *
@@ -11,16 +16,21 @@ from Webserver import *
 class ConnectFourWebserver(Daemon):
     def __init__(self):
          Daemon.__init__(self, "ConnectFourWebserver")
+         self._instance = None
 
+    def _createInstance(self):
          server = tornado.httpserver.HTTPServer(ConnectFourWebServer())
          server.listen(8080)
          self._instance = tornado.ioloop.IOLoop.instance()
 
     def run(self):
+         if self._instance is None:
+              self._createInstance()
          self._instance.start()
 
     def cleanup(self):
-         self._instance.stop()
+         if not self._instance is None:
+              self._instance.stop()
 
 if __name__ == "__main__":
     daemon = ConnectFourWebserver()

@@ -1,0 +1,3 @@
+recursive-include src/Static *
+recursive-include src/Templates *
+
